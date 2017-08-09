@@ -82,6 +82,17 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>PUT THE FIZZBUZZ FORM HERE</h2>
+
+
+                    <!-- date field is automatically saved, no form input necessary -->
+                    <form action="#" th:action="@{/userform}" th:object="${someUser}" method="post">
+                        Name: <input type="text" th:field="*{name}"/>
+                        Message: <input type="text" th:field="*{userMessage}"/>
+                        Pick a number: <input type="number" th:field="*{numPicked}"/><br/><br/>
+                        <input type="submit" value="Submit"/>
+                    </form>
+
+
                 </div>
             </div>
             <!-- /.row -->

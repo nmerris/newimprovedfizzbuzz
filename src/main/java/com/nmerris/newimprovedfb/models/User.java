@@ -7,6 +7,16 @@ public class User {
     private String name;
     private String userMessage;
     private Date startDate;
+    private long numPicked;
+
+
+    public long getNumPicked() {
+        return numPicked;
+    }
+
+    public void setNumPicked(long numPicked) {
+        this.numPicked = numPicked;
+    }
 
     public String getName() {
         return name;
