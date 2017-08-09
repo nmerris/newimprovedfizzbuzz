@@ -1,7 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
+
+    <!-- to display a custom error message with thymeleaf -->
+    <!--<div th:if="${#fields.hasErrors('fieldName')}" th:errors="*{fieldName}"  role="alert" class="..." OR-->
+    <!--<div th:if="${#fields.hasErrors('fieldName')}" th:errors="#{static.fieldName}"  class="..." (for custom error from messages.properties)-->
+    <!--if something is supposed to be inline, put it all between [[...]]-->
+
+    <!-- HERE IS HOW TO GET RID OF THAT ANNOYING EXCEPTION MSG FOR DATE VALIDATION!! -->
+    <!-- exceptiontrapper is in messages.properties, static is NOT a keyword here, it's just tidy -->
+    <!-- obviously still need the annoations in the model fields, and @Valid stuff in the controller method-->
+    <!--<div th:if="${#fields.hasErrors('fieldName')} th:text="#{static.exceptiontrapper} ...-->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,19 +48,16 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
+                <a href="#top" onclick=$("#menu-close").click();>New Improved FizzBuzz</a>
             </li>
             <li>
                 <a href="#top" onclick=$("#menu-close").click();>Home</a>
             </li>
             <li>
-                <a href="#about" onclick=$("#menu-close").click();>About</a>
+                <a href="#about" onclick=$("#menu-close").click();>Play</a>
             </li>
             <li>
-                <a href="#services" onclick=$("#menu-close").click();>Services</a>
-            </li>
-            <li>
-                <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
+                <a href="#services" onclick=$("#menu-close").click();>User List</a>
             </li>
             <li>
                 <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
@@ -61,14 +68,13 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>Start Bootstrap</h1>
-            <h3>Free Bootstrap Themes &amp; Templates</h3>
+            <h1>Welcome to the new improved FizzBuzz!</h1>
+            <h3>Now on the web with CSS, Bootstrap, Spring, Thymeleaf, and Mysql</h3>
             <br>
-            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
         </div>
     </header>
 
-    <!-- About -->
+    <!-- Play (used to be 'about') -->
     <section id="about" class="about">
         <div class="container">
             <div class="row">
@@ -153,60 +159,6 @@
         <!-- /.container -->
     </section>
 
-    <!-- Callout -->
-    <aside class="callout">
-        <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
-        </div>
-    </aside>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="../static/img/portfolio-1.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="../static/img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="../static/img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="../static/img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
     <!-- Call to Action -->
     <aside class="call-to-action bg-primary">
         <div class="container">
@@ -234,10 +186,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
+                    <h4><strong>New Improved FizzBuzz</strong>
                     </h4>
-                    <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
+                    <p>202 7th Avenue
+                        <br>Brunswick, MD 21716</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
                         <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
