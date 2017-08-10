@@ -81,15 +81,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>PUT THE FIZZBUZZ FORM HERE</h2>
+                    <h2>Enter your name and a message, then pick a number</h2>
 
 
                     <!-- date field is automatically saved, no form input necessary -->
-                    <form action="#" th:action="@{/userform}" th:object="${someUser}" method="post">
+                    <form action="#" th:action="@{/index}" th:object="${someUser}" method="post">
+
                         Name: <input type="text" th:field="*{name}"/>
                         Message: <input type="text" th:field="*{userMessage}"/>
                         Pick a number: <input type="number" th:field="*{numPicked}"/><br/><br/>
                         <input type="submit" value="Submit"/>
+
+                        <br/>
+                        <div th:if="${#fields.hasErrors('name')}" th:text="#{static.name}" class="well alert alert-danger" role="alert">NameError</div>
+
                     </form>
 
 

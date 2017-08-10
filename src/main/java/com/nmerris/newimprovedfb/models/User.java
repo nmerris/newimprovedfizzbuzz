@@ -1,12 +1,23 @@
 package com.nmerris.newimprovedfb.models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
 
+    @NotEmpty
     private String name;
+
     private String userMessage;
+
+    // date is not something the user can enter, it is timestamped
     private Date startDate;
+
+    @NotNull
+//    @Size(min = 10, max = 1000)
     private long numPicked;
 
 
