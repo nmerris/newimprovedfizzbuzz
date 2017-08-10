@@ -92,8 +92,9 @@
                         Pick a number: <input type="number" th:field="*{numPicked}"/><br/><br/>
                         <input type="submit" value="Submit"/>
 
-                        <br/>
-                        <div th:if="${#fields.hasErrors('name')}" th:text="#{static.name}" class="well alert alert-danger" role="alert">NameError</div>
+                        <br/><br/>
+                        <div th:if="${#fields.hasErrors('name')}" th:text="#{static.name}" class="well alert alert-danger col-xs-6" role="alert">NameError</div>
+                        <div th:if="${#fields.hasErrors('numPicked')}" th:text="#{static.numPicked}" class="well alert alert-danger col-xs-6" role="alert">NumPickedError</div>
 
                     </form>
 

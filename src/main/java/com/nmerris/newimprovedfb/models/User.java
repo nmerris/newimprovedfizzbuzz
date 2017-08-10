@@ -2,6 +2,8 @@ package com.nmerris.newimprovedfb.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -17,7 +19,8 @@ public class User {
     private Date startDate;
 
     @NotNull
-//    @Size(min = 10, max = 1000)
+    @Min(10)
+    @Max(1000)
     private long numPicked;
 
 
