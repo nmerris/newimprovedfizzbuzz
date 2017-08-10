@@ -34,9 +34,17 @@ public class MainController {
     public String indexPagePost(@Valid @ModelAttribute("someUser") User user, BindingResult bindingResult, Model model) {
 
 
+
+
+        // TODO add a table of users, from the db, and put it in index#users
+        // this should happen all the time, no need for a separate controller method, it should just always reflect
+        // the current data in the db, ok if it's empty for now
+        // this needs to happen before anything else in this method
+
+
         if(bindingResult.hasErrors()) {
             // this actually works, but the error msg info is lost
-            // TODO ask Afua how to preserve the page info so it keeps the error m
+            // TODO ask Afua how to preserve the page info so it keeps the error msg
 //            return "redirect:index#play";
                 return "index";
 
@@ -53,7 +61,14 @@ public class MainController {
         // TODO add todays date to user
         userRepository.save(user);
 
+        // same as above, want to go to index#play but also keep page info
+        // same as above, want to go to index#play but also keep page info
+        // now it should show the results of the users entry
+        // TODO ask Fi
         return "index";
+
+
+
     }
 //
 //
