@@ -2,13 +2,24 @@ package com.nmerris.newimprovedfb.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+@Entity
 public class User {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
 
     @NotEmpty
     private String name;
@@ -23,6 +34,17 @@ public class User {
     @Max(1000)
     private long numPicked;
 
+
+    private String fizzBuzzResult;
+
+
+    public String getFizzBuzzResult() {
+        return fizzBuzzResult;
+    }
+
+    public void setFizzBuzzResult(String fizzBuzzResult) {
+        this.fizzBuzzResult = fizzBuzzResult;
+    }
 
     public long getNumPicked() {
         return numPicked;
