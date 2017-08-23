@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 public class MainController {
@@ -58,13 +59,19 @@ public class MainController {
         // process fizzbuzz here, store result in user, save to db
         FizzBuzzProcessor fizzBuzzProcessor = new FizzBuzzProcessor((int) user.getNumPicked());
         user.setFizzBuzzResult(fizzBuzzProcessor.startFizzing());
-        System.out.println("FizzBuzzResult was: " + user.getFizzBuzzResult());
+//        System.out.println("FizzBuzzResult was: " + user.getFizzBuzzResult());
 
         // user should now have a name, play date, and fizzbuzz result String
         // TODO add todays date to user
         userRepository.save(user);
 
-        // same as above, want to go to index#play but also keep page info
+
+        // add all the Users to the model
+        model.addAttribute("userList", userRepository.findAll());
+        model.addAttribute("fizzResult", user.getFizzBuzzResult());
+
+
+
         // same as above, want to go to index#play but also keep page info
         // now it should show the results of the users entry
         // TODO ask Fi
@@ -73,18 +80,6 @@ public class MainController {
 
 
     }
-//
-//
-//    @GetMapping("/fizzbuzzresult")
-//    public String displayFizzBuzzResult(User user) {
-//
-//
-//        // get stuff from user (should now have list of fizz buzz results)
-//        // put it in fizzbuzzresult with tleaf
-//
-//
-//        return ""
-//    }
-//
+
 
 }
