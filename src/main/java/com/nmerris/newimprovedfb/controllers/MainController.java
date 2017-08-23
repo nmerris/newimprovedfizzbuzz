@@ -77,18 +77,6 @@ public class MainController {
 
 
     }
-//
-//
-//    @GetMapping("/fizzbuzzresult")
-//    public String displayFizzBuzzResult(User user) {
-//
-//
-//        // get stuff from user (should now have list of fizz buzz results)
-//        // put it in fizzbuzzresult with tleaf
-//
-//
-//        return ""
-//    }
-//
+
 
 }
