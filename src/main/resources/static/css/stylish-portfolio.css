@@ -248,3 +248,17 @@ footer {
   bottom: 5px;
   right: 5px;
 }
+
+.bg-primary {
+    /*color: lightsteelblue;*/
+    background-color: #b8cdde;
+}
+
+td, th {
+    color:black;
+}
+
+.jumbotron {
+    word-wrap:break-word;
+    width: 100%;
+}

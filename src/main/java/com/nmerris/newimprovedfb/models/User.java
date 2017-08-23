@@ -2,14 +2,10 @@ package com.nmerris.newimprovedfb.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -34,7 +30,11 @@ public class User {
     @Max(1000)
     private long numPicked;
 
-
+    // TEXT should allow storage of about 64kb, which is a LOT of characters
+    // MEDIUMTEXT: 16mb
+    // TINYTEXT: 256 bytes
+    // LONGTEXT: 4 gigabytes
+    @Column(columnDefinition = "TEXT")
     private String fizzBuzzResult;
 
 
