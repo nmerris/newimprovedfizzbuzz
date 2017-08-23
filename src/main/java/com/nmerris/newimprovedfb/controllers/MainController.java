@@ -34,7 +34,7 @@ public class MainController {
 
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.POST)
-    public String indexPagePost(@Valid @ModelAttribute("someUser") User user, BindingResult bindingResult, ModelAndView model) {
+    public String indexPagePost(@Valid @ModelAttribute("someUser") User user, BindingResult bindingResult, Model model) {
 
 
 
@@ -49,7 +49,7 @@ public class MainController {
             // this actually works, but the error msg info is lost
             // TODO ask Afua how to preserve the page info so it keeps the error msg
 //            return "redirect:index#play";
-            model.setView(new RedirectView("index#play", true));
+//            model.setView(new RedirectView("index#play", true));
             return "index";
 
 
